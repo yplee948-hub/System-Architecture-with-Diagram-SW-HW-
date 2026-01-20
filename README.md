@@ -42,8 +42,7 @@ The system logic follows a threshold-based timing pattern to determine the state
     6.  **Decay:** If timer exceeds 24 hours, motor moves needle to "Delayed."
 
 ## The Sensing Device (Hardware & Operation)
-![Sensing Device Sketch](images/sensing_device.png)
-
+<img src="images/sensing_device.png" width="60%" />
 
 The Sensing Device is a compact, battery-powered base designed to sit discreetly under a medication bottle. Its primary function is to detect "intake events" by monitoring precise weight fluctuations.
 
@@ -77,3 +76,29 @@ The Display Device serves as the user interface, providing a glanceable "analog"
 * **Actuator:** 28BYJ-48 Stepper Motor + ULN2003 Driver
 * **Visuals:** SSD1306 OLED (128x64) & WS2812B RGB LED
 * **Power:** 3.7V LiPo Battery (LP 653042)
+
+## Communication & System Logic
+
+This section details how the two XIAO ESP32C3 modules interact and the logic used to determine medication adherence status.
+
+### Figure 1: BLE Communication Flow
+The system uses **Bluetooth Low Energy (BLE)** to maintain a long battery life. The Sensing Device acts as a **GATT Server**, hosting a "Weight Characteristic." When a dose is detected, it pushes a notification to the Display Device (the **Client**).
+
+<div align="center">
+  <img src="images/Figure1.png" width="70%" />
+  <p><i>Wireless interaction between Sensing and Display units via BLE.</i></p>
+</div>
+
+### Figure 2: Detailed Functional Diagram
+The software follows a state-machine logic to ensure accuracy and prevent false triggers.
+
+<div align="center">
+  <img src="images/Figure2.png" width="70%" />
+  <p><i>Logic flow for dose detection and physical gauge updates.</i></p>
+</div>
+
+### How it Works:
+1.  **Sensing Loop:** The Sensor unit constantly polls the **HX711** ADC. It looks for a weight drop followed by a weight return (signifying the bottle was picked up and put back).
+2.  **Validation:** If the weight difference matches the expected dose (e.g., +/- 0.5g), it triggers a BLE notification.
+3.  **Display Update:** Upon receiving the BLE trigger, the Display unit resets its **Internal Adherence Timer**. 
+4.  **Physical Feedback:** The **28BYJ-48 Stepper Motor** moves the needle to the "Normal" position. If the timer hits the 12-hour mark without a new trigger, the motor moves the needle to "Delayed."

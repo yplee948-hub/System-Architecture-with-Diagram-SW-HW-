@@ -61,7 +61,7 @@ The Sensing Device is a compact, battery-powered base designed to sit discreetly
 * **Power:** 1100mAh LiPo Battery (LP 653042)
 
 ## The Display Device (Hardware & Operation)
-
+<img src="images/display_sketch.png" width="60%" />
 The Display Device serves as the user interface, providing a glanceable "analog" status of medication adherence. It stays in a central location (like a kitchen counter) and updates automatically based on signals from the Sensing Device.
 
 ### How it Works:

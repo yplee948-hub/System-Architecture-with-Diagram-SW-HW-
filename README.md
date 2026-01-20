@@ -3,8 +3,7 @@
 ### Project Overview
 The Medication Routine Awareness Device is an IoT-enabled system that tracks medication intake using weight-based sensing to provide real-time physical feedback. By monitoring the weight of a pill container and displaying adherence status on a physical gauge, it helps users avoid missed or delayed doses through a simple, glanceable interface.
 
-**System Concept Sketch:**
-![System Overview](system-sketch.png)
+**System Concept Sketch:** ![System Overview](system-sketch.png)
 
 ---
 

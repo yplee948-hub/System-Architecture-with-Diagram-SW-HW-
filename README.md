@@ -93,7 +93,7 @@ The system uses **Bluetooth Low Energy (BLE)** to maintain a long battery life. 
 The software follows a state-machine logic to ensure accuracy and prevent false triggers.
 
 <div align="center">
-  <img src="images/Figure2.png" width="70%" />
+  <img src="images/Figure 2.png" width="70%" />
   <p><i>Logic flow for dose detection and physical gauge updates.</i></p>
 </div>
 

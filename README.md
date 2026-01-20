@@ -102,3 +102,27 @@ The software follows a state-machine logic to ensure accuracy and prevent false 
 2.  **Validation:** If the weight difference matches the expected dose (e.g., +/- 0.5g), it triggers a BLE notification.
 3.  **Display Update:** Upon receiving the BLE trigger, the Display unit resets its **Internal Adherence Timer**. 
 4.  **Physical Feedback:** The **28BYJ-48 Stepper Motor** moves the needle to the "Normal" position. If the timer hits the 12-hour mark without a new trigger, the motor moves the needle to "Delayed."
+
+## Citation
+
+This project utilized a hybrid design workflow, combining traditional hand sketching, AI assisted visualization, and professional diagramming tools to move from concept to technical execution.
+
+### 🎨 Visual & Conceptual Design
+* **Procreate (Hand-Sketching):** I used Procreate to hand draw the initial layouts for the Sensing and Display devices. This allowed for rapid ideation of the physical component placement (load cell, motor, and screen) within the enclosures.
+* **Nano Banana (AI Image Generation):** Using my Procreate sketches as a reference, I utilized the **Nano Banana** model to generate high-fidelity conceptual renders. These images helped define the aesthetic direction for the 3D-printed housings.
+
+### 📊 Technical Documentation
+* **Figma Jam:** All finalized system diagrams, including the **Figure 1 (Communication Flow)** and **Figure 2 (Hardware Architecture)**, were manually built by me using Figma Jam. This ensured the diagrams were clean, scannable, and followed standard engineering flowchart conventions.
+* **ChatGPT (Technical Partner):** I used ChatGPT as a thought partner to:
+    * Verify the **pin-to-pin wiring logic** (e.g., ensuring correct mapping between the HX711, ULN2003, and the XIAO ESP32C3).
+    * Validate **BLE communication protocols** (Advertising, Scanning, and Notification logic).
+    * Refine technical terminology and proofread documentation for professional accuracy.
+    * Verify Grammatical Errors 
+
+### 🛠️ Tool Stack Summary
+| Tool | Application |
+| :--- | :--- |
+| **Procreate** | Initial hand-sketches and physical layout ideation |
+| **Nano Banana** | AI-generated visual concepts based on hand-sketches |
+| **Figma Jam** | Manual creation of system logic and hardware diagrams |
+| **ChatGPT** | Technical verification of wiring, BLE logic, and copy editing |

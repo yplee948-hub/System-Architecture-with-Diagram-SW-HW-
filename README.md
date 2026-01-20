@@ -59,3 +59,21 @@ The Sensing Device is a compact, battery-powered base designed to sit discreetly
 * **Weight Sensor:** TAL220 Load Cell
 * **Amplifier:** HX711 24-Bit Analog-to-Digital Converter
 * **Power:** 1100mAh LiPo Battery (LP 653042)
+
+## The Display Device (Hardware & Operation)
+
+The Display Device serves as the user interface, providing a glanceable "analog" status of medication adherence. It stays in a central location (like a kitchen counter) and updates automatically based on signals from the Sensing Device.
+
+### How it Works:
+1. **Wireless Reception:** The **Seeed Studio XIAO ESP32C3** acts as a BLE Client. It listens for a "trigger" packet from the sensing base. 
+2. **Timing Logic:** The microcontroller runs an internal timer. If the timer exceeds a set window (e.g., 24 hours) without receiving a signal, it logic-shifts the status from "Normal" to "Delayed" or "Missed."
+3. **Physical Actuation:** To move the physical needle, the XIAO sends step commands to a **ULN2003 Driver Board**, which powers the **28BYJ-48 Stepper Motor**. This allows for precise, silent movement of the gauge.
+4. **Visual & Ambient Alerts:** * A **WS2812B RGB LED** changes color (Green, Yellow, Red) to match the needle position.
+    * An **SSD1306 OLED Screen** displays the exact time the last dose was detected.
+5. **Manual Override:** A tactile button allows the user to "Snooze" alerts or manually reset the needle if needed.
+
+### Key Components:
+* **Microcontroller:** Seeed Studio XIAO ESP32C3
+* **Actuator:** 28BYJ-48 Stepper Motor + ULN2003 Driver
+* **Visuals:** SSD1306 OLED (128x64) & WS2812B RGB LED
+* **Power:** 3.7V LiPo Battery (LP 653042)

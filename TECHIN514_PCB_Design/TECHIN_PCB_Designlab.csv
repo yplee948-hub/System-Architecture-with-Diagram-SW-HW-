@@ -1,0 +1,8 @@
+"#","Reference","Qty","Value","Footprint","DNP"
+"1","CIN1, COUT1","2","1µF","",""
+"2","D1","1","LED","",""
+"3","J1","1","Conn_01x04_Pin","",""
+"4","R1, R2","2","4.7kΩ","",""
+"5","R3","1","1kΩ","",""
+"6","U1","1","MIC5376","",""
+"7","U2","1","BME280","Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering",""
